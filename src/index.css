@@ -1,0 +1,49 @@
+:root{
+
+    /* Background Colors */
+    --bg:#0f172a;
+    --card:#182131;
+    --card2:#1b2133;
+    --header:#252d3d;
+
+    /* Text Colors */
+    --text:#ffffff;
+    --subtext:#94a3b8;
+
+    /* Theme Colors */
+    --primary-color:#7c3aed;
+    --secondary-color:#06b6d4;
+
+    /* Badge */
+    --badge-bg:#16394d;
+    --badge-text:#22d3ee;
+
+    /* Border */
+    --border:#2c3245;
+
+}
+
+body[data-theme="light"]{
+
+    /* Background Colors */
+    --bg:#ffffff;
+    --card:#f3f4f6;
+    --card2:#ffffff;
+    --header:#e5e7eb;
+
+    /* Text Colors */
+    --text:#111827;
+    --subtext:#4b5563;
+
+    /* Theme Colors */
+    --primary-color:#7c3aed;
+    --secondary-color:#06b6d4;
+
+    /* Badge */
+    --badge-bg:#dbeafe;
+    --badge-text:#2563eb;
+
+    /* Border */
+    --border:#d1d5db;
+
+}

@@ -1,0 +1,468 @@
+/* ==========================
+   ABOUT SECTION
+========================== */
+
+.about-section{
+    width:100%;
+    min-height:100vh;
+
+    background:var(--bg);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:40px 8%;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+/* ==========================
+      LEFT SIDE
+========================== */
+
+.about-left{
+
+    width:48%;
+
+}
+
+.status-badge{
+
+    display:inline-block;
+
+    background:var(--badge-bg);
+
+    color:var(--badge-text);
+
+    padding:10px 22px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+
+}
+
+.about-heading{
+
+    color:var(--text);
+
+    font-size:60px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+}
+
+.gradient-text{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.about-description{
+
+    color:var(--subtext);
+
+    width:90%;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    margin-top:18px;
+
+}
+
+/* ==========================
+      BUTTONS
+========================== */
+
+.about-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:25px;
+
+}
+
+.project-btn{
+
+    text-decoration:none;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.project-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.download-btn{
+
+    text-decoration:none;
+
+    border:2px solid var(--border);
+
+    color:var(--text);
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:var(--card);
+
+}
+
+/* ==========================
+      RIGHT SIDE
+========================== */
+
+.about-right{
+
+    width:45%;
+
+    display:flex;
+
+    justify-content:center;
+
+    position:relative;
+
+}
+
+.editor-card{
+
+    width:520px;
+
+    background:var(--card2);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 60px rgba(123,97,255,.18);
+
+    transition:.4s;
+
+}
+
+/* ==========================
+      EDITOR HEADER
+========================== */
+
+.editor-header{
+
+    height:55px;
+
+    background:var(--header);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+.editor-dots{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.editor-dots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+}
+
+.red{
+
+    background:#ff5f57;
+
+}
+
+.yellow{
+
+    background:#ffbd2e;
+
+}
+
+.green{
+
+    background:#28ca42;
+
+}
+
+.editor-file{
+
+    color:var(--subtext);
+
+    font-size:15px;
+
+}
+
+/* ==========================
+      CODE BODY
+========================== */
+
+.editor-body{
+
+    padding:18px 22px;
+
+}
+
+.editor-body pre{
+
+    color:#22c55e;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    font-family:"Fira Code", monospace;
+
+    white-space:pre-wrap;
+
+}
+
+/* ==========================
+      CARD GLOW
+========================== */
+
+.editor-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:var(--primary-color);
+
+    filter:blur(120px);
+
+    opacity:.12;
+
+    z-index:-1;
+
+}
+
+/* ==========================
+      HOVER EFFECT
+========================== */
+
+.editor-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 0 80px rgba(139,92,246,.35);
+
+}
+
+.status-badge{
+
+    transition:.3s;
+
+}
+
+.status-badge:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+.about-heading{
+
+    font-size:58px;
+
+}
+
+.editor-card{
+
+    width:470px;
+
+}
+
+.about-description{
+
+    font-size:18px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.about-section{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 30px;
+
+    gap:60px;
+
+}
+
+.about-left,
+.about-right{
+
+    width:100%;
+
+}
+
+.about-description{
+
+    width:100%;
+
+}
+
+.about-buttons{
+
+    justify-content:center;
+
+}
+
+.editor-card{
+
+    width:100%;
+
+    max-width:500px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.about-heading{
+
+    font-size:44px;
+
+}
+
+.about-description{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+
+.status-badge{
+
+    font-size:12px;
+
+    padding:8px 18px;
+
+}
+
+.project-btn,
+.download-btn{
+
+    padding:12px 22px;
+
+    font-size:14px;
+
+}
+
+.editor-header{
+
+    height:50px;
+
+}
+
+.editor-body{
+
+    padding:18px;
+
+}
+
+.editor-body pre{
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+}
+
+/* ==========================
+      HIGHLIGHT
+========================== */
+
+.highlight{
+
+    color:var(--secondary-color);
+
+    font-weight:600;
+
+}

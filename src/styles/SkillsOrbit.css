@@ -1,0 +1,541 @@
+/* ===========================================
+   SKILLS ORBIT
+=========================================== */
+
+.orbit-wrapper{
+
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:var(--bg);
+
+    transition:.35s;
+
+}
+
+/* ===========================================
+   SCENE
+=========================================== */
+
+.scene{
+
+    width:580px;
+    height:580px;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/* ===========================================
+   CENTER CIRCLE
+=========================================== */
+
+.center-circle{
+
+    width:145px;
+    height:145px;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color),
+        #2563eb
+    );
+
+    color:white;
+
+    z-index:100;
+
+    box-shadow:
+        0 0 35px rgba(6,182,212,.45),
+        0 0 80px rgba(139,92,246,.30);
+
+    animation:pulseCenter 3s ease-in-out infinite;
+
+    transition:.35s;
+
+}
+
+.center-circle h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.center-circle p{
+
+    margin-top:8px;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    color:white;
+
+}
+
+.center-circle span{
+
+    margin-top:3px;
+
+    font-size:14px;
+
+    color:#f8fafc;
+
+}
+
+/* ===========================================
+   PULSE ANIMATION
+=========================================== */
+
+@keyframes pulseCenter{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:
+            0 0 35px rgba(6,182,212,.45),
+            0 0 80px rgba(139,92,246,.30);
+
+    }
+
+    50%{
+
+        transform:scale(1.06);
+
+        box-shadow:
+            0 0 60px rgba(6,182,212,.75),
+            0 0 110px rgba(139,92,246,.45);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:
+            0 0 35px rgba(6,182,212,.45),
+            0 0 80px rgba(139,92,246,.30);
+
+    }
+
+}
+/* ===========================================
+   ORBIT RINGS
+=========================================== */
+
+.orbit-ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.35s;
+
+}
+
+/* ===========================================
+   ROTATION
+=========================================== */
+
+.rotate-cw{
+
+    animation:rotateCW linear infinite;
+
+}
+
+.rotate-ccw{
+
+    animation:rotateCCW linear infinite;
+
+}
+
+@keyframes rotateCW{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes rotateCCW{
+
+    from{
+
+        transform:rotate(360deg);
+
+    }
+
+    to{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+/* ===========================================
+   SKILL PILLS
+=========================================== */
+
+.skill{
+
+    position:absolute;
+
+    width:90px;
+    height:36px;
+
+    border-radius:999px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:12px;
+    font-weight:600;
+
+    color:white;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:all .35s ease;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.25);
+
+}
+
+.skill:hover{
+
+    transform:scale(1.15);
+
+    filter:brightness(1.1);
+
+    box-shadow:
+        0 0 18px currentColor,
+        0 0 40px currentColor;
+
+    z-index:999;
+
+}
+
+/* ===========================================
+   GRADIENT COLORS
+=========================================== */
+
+.gradient-red{
+background:linear-gradient(135deg,#ff6b6b,#ff8e53);
+}
+
+.gradient-blue{
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+.gradient-green{
+background:linear-gradient(135deg,#43e97b,#38f9d7);
+}
+
+.gradient-pink{
+background:linear-gradient(135deg,#fa709a,#fee140);
+}
+
+.gradient-purple{
+background:linear-gradient(135deg,#7f7fd5,#86a8e7);
+}
+
+.gradient-yellow{
+background:linear-gradient(135deg,#f7971e,#ffd200);
+}
+
+.gradient-cyan{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+.gradient-orange{
+background:linear-gradient(135deg,#fc466b,#3f5efb);
+}
+
+.gradient-indigo{
+background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+.gradient-teal{
+background:linear-gradient(
+135deg,
+var(--primary-color),
+var(--secondary-color)
+);
+}
+
+/* ===========================================
+   STARS
+=========================================== */
+
+.stars{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:var(--text);
+
+    opacity:.45;
+
+    animation:starFloat linear infinite;
+
+}
+
+@keyframes starFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:.2;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(max-width:1200px){
+
+.scene{
+
+    width:500px;
+    height:500px;
+
+}
+
+.center-circle{
+
+    width:135px;
+    height:135px;
+
+}
+
+.center-circle h2{
+
+    font-size:24px;
+
+}
+
+.skill{
+
+    width:82px;
+    height:34px;
+
+    font-size:11px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.scene{
+
+    width:420px;
+    height:420px;
+
+}
+
+.center-circle{
+
+    width:120px;
+    height:120px;
+
+}
+
+.center-circle h2{
+
+    font-size:20px;
+
+}
+
+.center-circle p{
+
+    font-size:12px;
+
+}
+
+.center-circle span{
+
+    font-size:11px;
+
+}
+
+.skill{
+
+    width:72px;
+    height:30px;
+
+    font-size:10px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.scene{
+
+    width:340px;
+    height:340px;
+
+}
+
+.center-circle{
+
+    width:100px;
+    height:100px;
+
+}
+
+.center-circle h2{
+
+    font-size:16px;
+
+}
+
+.center-circle p{
+
+    font-size:10px;
+
+}
+
+.center-circle span{
+
+    font-size:9px;
+
+}
+
+.skill{
+
+    width:60px;
+    height:26px;
+
+    font-size:9px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.scene{
+
+    width:280px;
+    height:280px;
+
+}
+
+.center-circle{
+
+    width:85px;
+    height:85px;
+
+}
+
+.center-circle h2{
+
+    font-size:14px;
+
+}
+
+.center-circle p{
+
+    font-size:9px;
+
+}
+
+.center-circle span{
+
+    display:none;
+
+}
+
+.skill{
+
+    width:52px;
+    height:22px;
+
+    font-size:8px;
+
+}
+
+}
