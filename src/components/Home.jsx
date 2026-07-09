@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "../styles/Home.css";
 
@@ -44,8 +44,8 @@ function Home() {
         </div>
 
         <p className="description">
-          Passionate Full Stack Developer building responsive,
-          scalable and modern web applications using the MERN Stack.
+          Passionate Full Stack Developer building responsive, scalable and
+          modern web applications using the MERN Stack.
         </p>
 
         <div className="buttons">
@@ -54,13 +54,13 @@ function Home() {
           </a>
 
           <a
-  href="/harinath_resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="resume-btn-home"
->
-  Resume
-</a>
+            href="/harinath_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-btn-home"
+          >
+            Resume
+          </a>
         </div>
       </div>
 
@@ -68,10 +68,10 @@ function Home() {
 
       <div className="right-container">
         {/* Replace with your own image */}
-        <img src="/hari.jpeg" alt="Hari" />
+        <img src="/hari.jpeg" loading="lazy" alt="Hari"/>
       </div>
     </section>
   );
 }
 
-export default Home;
+export default memo(Home);

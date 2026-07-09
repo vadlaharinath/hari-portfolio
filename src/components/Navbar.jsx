@@ -1,6 +1,6 @@
 import "../styles/Navbar.css";
 import { useTheme } from "./ThemeContext";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
@@ -86,4 +86,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,6 +1,7 @@
 import "../styles/Projects.css";
 import ProjectCard from "./ProjectCard";
 import projectsData from "../data/projectsData";
+import { memo } from "react";
 
 function Projects() {
   return (
@@ -59,4 +60,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default memo(Projects);

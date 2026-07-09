@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import SkillsOrbit from "./SkillsOrbit";
 import "../styles/Skills.css";
 
@@ -134,4 +134,4 @@ function Skills() {
   );
 }
 
-export default Skills;
+export default memo(Skills);

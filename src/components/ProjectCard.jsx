@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "../styles/ProjectCard.css";
 import { FaGithub } from "react-icons/fa";
 
@@ -49,4 +50,4 @@ function ProjectCard({ project }) {
   );
 }
 
-export default ProjectCard;
+export default memo(ProjectCard);

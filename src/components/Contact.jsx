@@ -1,84 +1,107 @@
 import "../styles/Contact.css";
 import contactData from "../data/contactData";
+import { memo } from "react";
 
 function Contact() {
 
-return (
+  return (
 
-<section className="contact-section" id="contact">
+    <section className="contact-section" id="contact">
 
-<div className="contact-left">
+      {/* LEFT */}
 
-<span className="contact-tag">
-CONTACT
-</span>
+      <div className="contact-left">
 
-<h1>
-Let's <span>Connect</span>
-</h1>
+        <span className="contact-tag">
+          CONTACT
+        </span>
 
-<p>
+        <h1>
+          Let's <span>Connect</span>
+        </h1>
 
-I'm currently looking for Full Stack Developer opportunities.
-Whether you have an internship, full-time role, freelance
-project or just want to connect, feel free to reach out.
+        <p>
 
-</p>
+          I'm currently looking for Full Stack Developer opportunities.
+          Whether you have an internship, full-time role, freelance
+          project or just want to connect, I'd love to hear from you.
 
-<div className="status">
+        </p>
 
-<div className="status-dot"></div>
+        <div className="status">
 
-<span>Available for Work</span>
+          <div className="status-dot"></div>
 
-</div>
+          <span className="status-text">
+            Available for Work
+          </span>
 
-</div>
+        </div>
 
-<div className="contact-right">
+      </div>
 
-{
-contactData.map((item)=>{
+      {/* RIGHT */}
 
-const Icon=item.icon;
+      <div className="contact-right">
 
-return(
+        {
 
-<a
-key={item.id}
-href={item.link}
-target="_blank"
-rel="noreferrer"
-className="contact-card"
->
+          contactData.map((item)=>{
 
-<div className="contact-icon">
+            const Icon = item.icon;
 
-<Icon/>
+            return(
 
-</div>
+              <a
 
-<div className="contact-details">
+                key={item.id}
 
-<h4>{item.title}</h4>
+                href={item.link}
 
-<p>{item.value}</p>
+                target="_blank"
 
-</div>
+                rel="noopener noreferrer"
 
-</a>
+                className="contact-card"
 
-);
+              >
 
-})
+                <div className="contact-icon">
+
+                  <Icon/>
+
+                </div>
+
+                <div className="contact-details">
+
+                  <h4>
+
+                    {item.title}
+
+                  </h4>
+
+                  <p>
+
+                    {item.value}
+
+                  </p>
+
+                </div>
+
+              </a>
+
+            )
+
+          })
+
+        }
+
+      </div>
+
+    </section>
+
+  );
+
 }
 
-</div>
-
-</section>
-
-)
-
-}
-
-export default Contact;
+export default memo(Contact);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "../styles/About.css";
 
 function About() {
@@ -68,4 +69,4 @@ developer.build();
   );
 }
 
-export default About;
+export default memo(About);
