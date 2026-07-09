@@ -1,5 +1,5 @@
 /* ==========================================
-   GLOBAL
+   RESET
 ========================================== */
 
 *{
@@ -12,31 +12,42 @@ html{
     scroll-behavior:smooth;
 }
 
+a{
+    text-decoration:none;
+}
+
 /* ==========================================
    NAVBAR
 ========================================== */
 
 .navbar{
-    position:sticky;
+
+    position:fixed;
+
     top:0;
+
+    left:0;
+
     width:100%;
+
     height:80px;
+
+    padding:0 8%;
 
     background:var(--bg);
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    padding:0 80px;
+    border-bottom:1px solid var(--border);
 
-    z-index:1000;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    z-index:999;
 
     transition:.35s;
+
 }
 
 /* ==========================================
@@ -44,12 +55,15 @@ html{
 ========================================== */
 
 .logo{
+
     font-size:2rem;
+
     font-weight:700;
 
     color:var(--text);
 
     cursor:pointer;
+
 }
 
 .logo-gradient{
@@ -61,9 +75,11 @@ html{
     );
 
     -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
 
     background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
 }
 
 /* ==========================================
@@ -74,41 +90,39 @@ html{
 
     display:flex;
 
-    list-style:none;
-
     gap:45px;
+
+    list-style:none;
 
 }
 
-.nav-links a{
+.nav-links li a{
 
     color:var(--text);
-
-    text-decoration:none;
 
     font-size:17px;
 
     font-weight:500;
 
-    transition:.3s;
-
     position:relative;
+
+    transition:.3s;
 
 }
 
-.nav-links a::after{
+.nav-links li a::after{
 
     content:"";
 
     position:absolute;
 
-    left:0;
-
-    bottom:-8px;
-
     width:0;
 
     height:2px;
+
+    left:0;
+
+    bottom:-6px;
 
     background:linear-gradient(
         90deg,
@@ -120,20 +134,20 @@ html{
 
 }
 
-.nav-links a:hover{
+.nav-links li a:hover{
 
     color:var(--primary-color);
 
 }
 
-.nav-links a:hover::after{
+.nav-links li a:hover::after{
 
     width:100%;
 
 }
 
 /* ==========================================
-   BUTTONS
+   RIGHT BUTTONS
 ========================================== */
 
 .nav-buttons{
@@ -145,8 +159,6 @@ html{
     gap:15px;
 
 }
-
-/* Theme Button */
 
 .theme-btn{
 
@@ -178,19 +190,15 @@ html{
 
 }
 
-/* Resume Button */
-
 .resume-btn{
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:12px 22px;
+    padding:12px 24px;
 
     border-radius:12px;
+
+    color:white;
+
+    font-weight:600;
 
     background:linear-gradient(
         90deg,
@@ -198,62 +206,250 @@ html{
         var(--secondary-color)
     );
 
-    color:white;
-
-    font-weight:600;
-
-    text-decoration:none;
-
     transition:.3s;
 
 }
 
 .resume-btn:hover{
 
-    transform:translateY(-2px);
-
-    box-shadow:0 0 18px rgba(124,58,237,.35);
+    transform:translateY(-3px);
 
 }
 
 /* ==========================================
-   RESPONSIVE
+   MOBILE MENU BUTTON
+========================================== */
+
+.menu-btn{
+
+    display:none;
+
+    border:none;
+
+    background:none;
+
+    color:var(--text);
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+.mobile-resume{
+
+    display:none;
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:0 5%;
+
+}
+
+.nav-links{
+
+    gap:25px;
+
+}
+
+}
+
+/* ==========================================
+   MOBILE
 ========================================== */
 
 @media(max-width:768px){
 
-    .navbar{
+/* Hide Desktop Resume */
 
-        padding:20px;
+.resume-btn{
 
-        flex-direction:column;
-
-        height:auto;
-
-        gap:20px;
-
-    }
-
-    .nav-links{
-
-        gap:20px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
-    .logo{
-
-        font-size:1.8rem;
-
-    }
+    display:none;
 
 }
 
-a{
+/* Show Hamburger */
 
-    text-decoration:none;
+.menu-btn{
+
+    display:block;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    height:75px;
+
+    padding:0 25px;
+
+}
+
+/* Side Menu */
+
+.nav-links{
+
+    position:fixed;
+
+    top:75px;
+
+    right:-100%;
+
+    width:280px;
+
+    height:100vh;
+
+    background:var(--card);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    justify-content:flex-start;
+
+    gap:0;
+
+    padding:30px;
+
+    transition:.4s ease;
+
+    box-shadow:-10px 0 30px rgba(0,0,0,.25);
+
+    z-index:999;
+
+}
+
+/* Open Menu */
+
+.nav-links.active{
+
+    right:0;
+
+}
+
+/* Menu Items */
+
+.nav-links li{
+
+    width:100%;
+
+    list-style:none;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.nav-links li a{
+
+    display:block;
+
+    width:100%;
+
+    padding:20px 0;
+
+    font-size:18px;
+
+    color:var(--text);
+
+}
+
+/* Remove Underline Animation */
+
+.nav-links li a::after{
+
+    display:none;
+
+}
+
+/* Resume Inside Menu */
+
+.mobile-resume{
+
+    display:block;
+
+}
+
+.mobile-resume a{
+
+    color:var(--primary-color) !important;
+
+    font-weight:700;
+
+}
+
+/* Theme Button */
+
+.theme-btn{
+
+    width:45px;
+
+    height:45px;
+
+    font-size:17px;
+
+}
+
+.logo{
+
+    font-size:1.8rem;
+
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.navbar{
+
+    padding:0 18px;
+
+}
+
+.logo{
+
+    font-size:1.55rem;
+
+}
+
+.nav-links{
+
+    width:250px;
+
+}
+
+.nav-links li a{
+
+    font-size:17px;
+
+}
+
+.theme-btn{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+.menu-btn{
+
+    font-size:28px;
+
+}
 
 }

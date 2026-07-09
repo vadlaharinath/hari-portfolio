@@ -53,9 +53,14 @@ function Home() {
             View Projects
           </a>
 
-          <a href="/harinath_resume.pdf" download className="resume-btn-home">
-            Download Resume
-          </a>
+          <a
+  href="/harinath_resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="resume-btn-home"
+>
+  Resume
+</a>
         </div>
       </div>
 
