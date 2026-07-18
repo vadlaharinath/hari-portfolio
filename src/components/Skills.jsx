@@ -50,6 +50,8 @@ function Skills() {
 
             <span>Node.js</span>
             <span>Express.js</span>
+            <span>Spring</span>
+            <span>Spring Boot</span>
             <span>REST API</span>
             <span>JWT</span>
 

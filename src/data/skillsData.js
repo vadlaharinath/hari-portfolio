@@ -29,6 +29,8 @@ const skillsData = [
     skills: [
       "Node.js",
       "Express.js",
+      "Spring",
+      "Spring Boot",
       "REST API",
       "JWT"
     ]

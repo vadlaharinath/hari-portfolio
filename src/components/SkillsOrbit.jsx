@@ -53,7 +53,6 @@ function SkillsOrbit() {
 
         <div className="center-circle">
 
-          <h2>Hari.dev</h2>
 
           <p>FULL STACK</p>
 
