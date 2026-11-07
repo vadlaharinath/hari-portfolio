@@ -1,0 +1,95 @@
+/* ========================================================
+   EARTH BACKGROUND & GLOW CONFIGURATION
+   ======================================================== */
+
+.earth-background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  z-index: 1;
+  isolation: isolate;
+
+  background: transparent;
+}
+
+/* =========================================
+   THREE.JS CANVAS
+========================================= */
+
+.earth-background canvas {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  z-index: 1;
+}
+
+/* ========================================================
+   BLUE ATMOSPHERIC GLOW
+   - Change width & height to match your Earth size
+======================================================== */
+
+.earth-space-glow {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  /* Increase or decrease glow diameter to match Earth size */
+  width: 390px;
+  height: 390px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(16, 105, 255, 0.22) 0%,
+    rgba(0, 88, 255, 0.14) 38%,
+    rgba(0, 48, 150, 0.05) 64%,
+    transparent 78%
+  );
+
+  filter: blur(35px);
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: earthSpacePulse 12s ease-in-out infinite;
+}
+
+/* =========================================
+   DARK SPACE VIGNETTE (DISABLED FOR SEAMLESS WHITE THEME)
+========================================= */
+
+.earth-vignette {
+  display: none;
+}
+
+/* =========================================
+   SLOW ATMOSPHERIC PULSE
+========================================= */
+
+@keyframes earthSpacePulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
+}

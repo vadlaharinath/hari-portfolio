@@ -17,7 +17,7 @@ const projectsData = [
 
   {
     id: 2,
-    title: "MERN Voting System",
+    title: "Full Stack Online Voting System",
     technologies: [
       "React.js",
       "Node.js",

@@ -4,11 +4,11 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
 
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-  }, [theme]);
+    document.body.setAttribute("data-theme", "light");
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));

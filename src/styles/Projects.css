@@ -1,199 +1,104 @@
-/* ==========================================
-   PROJECTS SECTION
-========================================== */
+/* ========================================================
+   PROJECTS SECTION (AI-ERA COLORFUL WHITE THEME)
+   ======================================================== */
 
-.projects-section{
-
-    width:100%;
-
-    min-height:100vh;
-
-    background:var(--bg);
-
-    padding:90px 0;
-
-    overflow:hidden;
-
+.projects-section {
+  width: 100%;
+  padding: 100px 0 120px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
-/* ==========================================
-   HEADER
-========================================== */
-
-.projects-header{
-
-    width:90%;
-
-    max-width:900px;
-
-    margin:auto;
-
-    text-align:center;
-
+.projects-container {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.projects-badge{
-
-    display:inline-block;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:rgba(59,130,246,.12);
-
-    color:#38bdf8;
-
-    border:1px solid rgba(56,189,248,.3);
-
-    font-size:13px;
-
-    font-weight:600;
-
-    letter-spacing:1px;
-
+.projects-header {
+  max-width: 680px;
+  margin: 0 auto 50px;
+  text-align: center;
+  padding: 0 24px;
 }
 
-.projects-title{
-
-    margin-top:22px;
-
-    font-size:60px;
-
-    color:var(--text);
-
-    font-weight:700;
-
+.projects-title {
+  font-size: 42px;
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+  color: #0f172a;
+  margin: 14px 0 16px;
 }
 
-.projects-title span{
-
-    background:linear-gradient(
-        90deg,
-        #8b5cf6,
-        #06b6d4
-    );
-
-    background-clip:text;
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
+.projects-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.projects-description{
-
-    margin-top:22px;
-
-    color:var(--subtext);
-
-    font-size:18px;
-
-    line-height:1.8;
-
+.projects-description {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.7;
 }
 
-/* ==========================================
-   SLIDER
-========================================== */
+/* ========================================================
+   INFINITE SLIDER WRAPPER
+   ======================================================== */
 
-.projects-slider{
-
-    margin-top:70px;
-
-    width:100%;
-
-    overflow:hidden;
-
+.projects-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 25px 0 35px;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
-.projects-track{
-
-    display:flex;
-
-    gap:35px;
-
-    width:max-content;
-
-    animation:scrollProjects 35s linear infinite;
-
+.projects-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: projectSlide 38s linear infinite;
 }
 
-/* Pause Animation */
-
-.projects-track:hover{
-
-    animation-play-state:paused;
-
+.projects-slider-wrapper:hover .projects-track {
+  animation-play-state: paused;
 }
 
-/* ==========================================
-   SCROLL
-========================================== */
-
-@keyframes scrollProjects{
-
-    0%{
-
-        transform:translateX(0);
-
-    }
-
-    100%{
-
-        transform:translateX(-50%);
-
-    }
-
+@keyframes projectSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 14px));
+  }
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 70px 0 90px;
+  }
 
-@media(max-width:992px){
+  .projects-title {
+    font-size: 32px;
+  }
 
-.projects-title{
-
-    font-size:46px;
-
-}
-
-.projects-description{
-
-    font-size:16px;
-
-    padding:0 25px;
-
-}
-
-.projects-slider{
-
-    margin-top:50px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.projects-title{
-
-    font-size:36px;
-
-}
-
-.projects-description{
-
-    font-size:15px;
-
-}
-
-.projects-track{
-
-    gap:20px;
-
-}
-
+  .projects-track {
+    animation-duration: 28s;
+  }
 }

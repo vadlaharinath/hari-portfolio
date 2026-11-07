@@ -1,0 +1,41 @@
+/* ========================================================
+   TOP SCROLL PROGRESS INDICATOR (AI-ERA COLORFUL BAR)
+   Moves smoothly from left to right as the user scrolls
+   ======================================================== */
+
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  z-index: 999999;
+  pointer-events: none;
+  background: rgba(226, 232, 240, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.scroll-progress-fill {
+  height: 100%;
+  width: 100%;
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    #6366f1 0%,
+    #8b5cf6 25%,
+    #ec4899 50%,
+    #06b6d4 75%,
+    #10b981 100%
+  );
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.7),
+              0 0 6px rgba(6, 182, 212, 0.8);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .scroll-progress-track {
+    height: 3px;
+  }
+}
+

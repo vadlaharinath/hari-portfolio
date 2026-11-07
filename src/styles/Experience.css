@@ -1,0 +1,568 @@
+/* ========================================================
+   CLEAN ID-CARD EXPERIENCE SECTION (AI-ERA LUMINOUS THEME)
+   Normal Flow, No Blank Space, Stable Clean ID Badge Card
+   ======================================================== */
+
+.experience-section {
+  position: relative;
+  width: 100%;
+  padding: 90px 5% 110px;
+  z-index: 1;
+}
+
+.experience-inner-container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+/* Section Header Bar */
+.experience-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.experience-main-title {
+  font-size: 36px;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.8px;
+  margin-top: 6px;
+}
+
+.experience-title-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 45%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-step-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-code);
+  font-weight: 800;
+}
+
+.step-num-active {
+  font-size: 28px;
+  color: var(--active-color, #6366f1);
+  transition: color 0.3s ease;
+}
+
+.step-num-total {
+  font-size: 15px;
+  color: #94a3b8;
+}
+
+/* ========================================================
+   THREE COLUMN GRID: LEFT INFO + CENTER LINE + RIGHT ID CARD
+   ======================================================== */
+
+.experience-three-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1.1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* ========================================================
+   LEFT SIDE: SYNCHRONIZED METADATA
+   ======================================================== */
+
+.experience-left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 20px;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.left-period-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-code);
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--active-color, #6366f1);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid var(--active-color, #6366f1);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--active-color, #6366f1) 20%, transparent);
+  transition: all 0.3s ease;
+}
+
+.period-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--active-color, #6366f1);
+  box-shadow: 0 0 8px var(--active-color, #6366f1);
+}
+
+.left-org-name {
+  font-size: 30px;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+.left-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.left-category-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #64748b;
+  background: rgba(241, 245, 249, 0.9);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.left-score-pill {
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--active-color, #6366f1) 12%, transparent);
+  color: var(--active-color, #6366f1);
+  border: 1px solid color-mix(in srgb, var(--active-color, #6366f1) 30%, transparent);
+}
+
+.left-location-text {
+  font-size: 13.5px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ========================================================
+   MIDDLE LINE: CENTRAL SPINE WITH CONNECTED NODES
+   ======================================================== */
+
+.experience-middle-line-col {
+  position: relative;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Background track */
+.middle-line-track {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: rgba(226, 232, 240, 0.9);
+  border-radius: 999px;
+  z-index: 1;
+}
+
+/* Active illuminated line that fills down */
+.middle-line-progress {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    #6366f1 0%,
+    #8b5cf6 30%,
+    #06b6d4 60%,
+    #10b981 85%,
+    #ec4899 100%
+  );
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--active-color, #6366f1);
+  transition: height 0.35s ease;
+  z-index: 2;
+}
+
+/* Interactive Milestone Nodes */
+.middle-milestone-node {
+  position: relative;
+  z-index: 5;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  font-size: 11px;
+  font-family: var(--font-code);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s ease;
+}
+
+.middle-milestone-node:hover {
+  transform: scale(1.15);
+  border-color: var(--active-color, #6366f1);
+  color: var(--active-color, #6366f1);
+}
+
+.middle-milestone-node.is-active {
+  width: 38px;
+  height: 38px;
+  background: var(--active-color, #6366f1);
+  color: #ffffff;
+  border: 3.5px solid #ffffff;
+  box-shadow: 0 0 16px var(--active-color, #6366f1);
+  transform: scale(1.12);
+}
+
+.node-pulse-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid var(--active-color, #6366f1);
+  opacity: 0.6;
+  animation: nodePulse 1.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes nodePulse {
+  from {
+    transform: scale(0.9);
+    opacity: 0.3;
+  }
+  to {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+}
+
+/* ========================================================
+   RIGHT SIDE: STABLE, CRISP ID BADGE CARD (NO MOVING)
+   ======================================================== */
+
+.experience-right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Lanyard Strap & Clip at Top */
+.id-lanyard-hanger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -8px;
+  z-index: 5;
+}
+
+.id-lanyard-strap {
+  width: 22px;
+  height: 34px;
+  background: linear-gradient(
+    to right,
+    #1e293b 0%,
+    #334155 30%,
+    #475569 50%,
+    #334155 70%,
+    #1e293b 100%
+  );
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.id-lanyard-clip {
+  width: 26px;
+  height: 16px;
+  background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #f1f5f9 100%);
+  border-radius: 3px;
+  border: 1px solid #64748b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: -2px;
+}
+
+/* Stable Card Frame (Clean, Solid, No Tilting) */
+.id-card-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.08),
+              0 6px 18px -4px color-mix(in srgb, var(--active-color, #6366f1) 20%, transparent);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.id-card-frame:hover {
+  border-color: color-mix(in srgb, var(--active-color, #6366f1) 40%, #cbd5e1);
+  box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.12),
+              0 8px 24px -4px color-mix(in srgb, var(--active-color, #6366f1) 25%, transparent);
+}
+
+/* Top Slot Bar */
+.id-card-top-slot {
+  height: 26px;
+  background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.id-badge-label {
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.id-badge-hole {
+  width: 36px;
+  height: 5px;
+  border-radius: 999px;
+  background: #94a3b8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Ribbon Accent */
+.id-card-ribbon {
+  height: 4px;
+  background: var(--active-color, #6366f1);
+  transition: background 0.3s ease;
+}
+
+/* Card Body */
+.id-card-body {
+  padding: 22px 24px 18px;
+}
+
+/* Header inside Card */
+.id-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.id-card-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--active-color, #6366f1) 12%, #ffffff);
+  color: var(--active-color, #6366f1);
+  border: 1.5px solid color-mix(in srgb, var(--active-color, #6366f1) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--active-color, #6366f1) 18%, transparent);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.id-grade-pill {
+  font-family: var(--font-code);
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3.5px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--active-color, #6366f1) 12%, transparent);
+  color: var(--active-color, #6366f1);
+  border: 1px solid color-mix(in srgb, var(--active-color, #6366f1) 30%, transparent);
+}
+
+.id-card-role {
+  font-size: 20px;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+
+.id-card-tagline {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--active-color, #6366f1);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Concise Description (Clean & Compact) */
+.id-card-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* Skills Chips */
+.id-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.id-skill-chip {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 650;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* Bottom Bar: Prev / Step Dots / Next Arrow or CTA */
+.id-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.id-nav-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.nav-dot.is-active {
+  width: 18px;
+  border-radius: 999px;
+  background: var(--active-color, #6366f1);
+}
+
+.id-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  border: none;
+  background: var(--active-color, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--active-color, #6366f1) 35%, transparent);
+  transition: all 0.25s ease;
+}
+
+.id-arrow-btn:hover {
+  transform: translateX(3px);
+  box-shadow: 0 5px 16px color-mix(in srgb, var(--active-color, #6366f1) 45%, transparent);
+}
+
+.id-prev-btn {
+  background: transparent;
+  color: #64748b;
+  box-shadow: none;
+  border: 1px solid #e2e8f0;
+  padding: 6px 11px;
+}
+
+.id-prev-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateX(-2px);
+}
+
+/* Compact CTA for "Your Company" */
+.id-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 750;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.35);
+  transition: all 0.25s ease;
+}
+
+.id-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(236, 72, 153, 0.45);
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (MOBILE & TABLETS)
+   ======================================================== */
+
+@media (max-width: 960px) {
+  .experience-section {
+    padding: 70px 5% 90px;
+  }
+
+  .experience-three-col-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .experience-left-side {
+    text-align: left;
+    align-items: flex-start;
+    padding-right: 0;
+  }
+
+  .left-meta-row {
+    justify-content: flex-start;
+  }
+
+  .left-org-name {
+    font-size: 24px;
+  }
+
+  .experience-middle-line-col {
+    display: none;
+  }
+
+  .id-card-frame {
+    max-width: 100%;
+  }
+}
