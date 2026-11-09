@@ -22,7 +22,7 @@ function Home() {
           <div className="name-block">
             <p className="greeting">Hello, I'm</p>
             <h1 className="name">
-              Vadla <span className="name-gradient">Harinath</span>
+              Hari <span className="name-gradient">Chari</span>
             </h1>
           </div>
 

@@ -60,7 +60,7 @@ function About() {
 
           <div className="bio-card">
             <p className="about-description">
-              Hi, I'm <span className="highlight">Vadla Harinath</span>, a
+              Hi, I'm <span className="highlight">vadla hari</span>, a
               passionate Full Stack Developer and Computer Science graduate from{" "}
               <span className="institution">
                 Sathyabama Institute of Science and Technology

@@ -5,36 +5,38 @@ function ScrollProgress() {
   const barRef = useRef(null);
 
   useEffect(() => {
-    let ticking = false;
+    // Synchronize with Lenis smooth scroll for sub-pixel 120fps accuracy
+    const updateFromLenis = (e) => {
+      if (barRef.current && typeof e.progress === "number") {
+        barRef.current.style.transform = `scaleX(${e.progress})`;
+      }
+    };
 
-    const updateProgress = () => {
+    // Fallback if Lenis is not yet mounted
+    const updateFallback = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? Math.min(1, Math.max(0, scrollY / docHeight)) : 0;
-
       if (barRef.current) {
         barRef.current.style.transform = `scaleX(${progress})`;
       }
-      ticking = false;
     };
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateProgress);
-        ticking = true;
-      }
-    };
+    if (window.__lenis) {
+      window.__lenis.on("scroll", updateFromLenis);
+    } else {
+      window.addEventListener("scroll", updateFallback, { passive: true });
+    }
 
-    // Initial update
-    updateProgress();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    // Initial check
+    updateFallback();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      if (window.__lenis) {
+        window.__lenis.off("scroll", updateFromLenis);
+      }
+      window.removeEventListener("scroll", updateFallback);
     };
   }, []);
 
@@ -46,4 +48,3 @@ function ScrollProgress() {
 }
 
 export default memo(ScrollProgress);
-
