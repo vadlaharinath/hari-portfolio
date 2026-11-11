@@ -205,7 +205,7 @@ function Experience() {
                           <FaArrowRight />
                         </a>
                         <a
-                          href="/harinath_resume.pdf"
+                          href="/hari_fullstack_resume.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="left-secondary-cta"

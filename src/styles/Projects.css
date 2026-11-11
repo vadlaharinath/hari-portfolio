@@ -91,11 +91,20 @@
 
 @media (max-width: 768px) {
   .projects-section {
-    padding: 70px 0 90px;
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+    padding: 80px 0 50px;
   }
 
   .projects-title {
-    font-size: 32px;
+    font-size: 26px;
+  }
+
+  .projects-description {
+    font-size: 13px;
+    padding: 0 16px;
   }
 
   .projects-track {

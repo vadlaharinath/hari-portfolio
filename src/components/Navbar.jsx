@@ -70,7 +70,7 @@ function Navbar() {
         {/* Action Button */}
         <div className="nav-actions">
           <a
-            href="/harinath_resume.pdf"
+            href="/hari_fullstack_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="resume-btn"
@@ -106,7 +106,7 @@ function Navbar() {
           ))}
           <li className="mobile-resume-wrap">
             <a
-              href="/harinath_resume.pdf"
+              href="/hari_fullstack_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mobile-resume-btn"

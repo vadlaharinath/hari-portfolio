@@ -73,13 +73,6 @@ function About() {
             </p>
 
             <p className="about-description">
-              I enjoy turning complex ideas into clean, responsive, and scalable
-              applications that provide an intuitive user experience. I love
-              continuous learning, algorithmic problem solving, and writing
-              maintainable production-ready code.
-            </p>
-
-            <p className="about-description">
               I am actively interested in <strong>Freelance Projects</strong> as
               well as full-time software engineering roles. Whether you need an
               end-to-end web application built from scratch or a dedicated

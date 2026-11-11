@@ -489,10 +489,18 @@
    ======================================================== */
 
 @media (max-width: 1080px) {
+  .about-section {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+    padding: 85px 5% 40px;
+  }
+
   .about-container {
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 36px;
   }
 
   .about-avatar-side {
@@ -510,38 +518,66 @@
 
 @media (max-width: 640px) {
   .about-section {
-    padding: 70px 6%;
+    padding: 80px 4% 30px;
   }
 
   .about-heading {
-    font-size: 32px;
+    font-size: 26px;
+    margin-bottom: 8px;
   }
 
   .about-avatar-composition {
-    width: 320px;
-    height: 320px;
+    width: 210px;
+    height: 210px;
   }
 
   .about-avatar-ring {
-    width: 270px;
-    height: 270px;
+    width: 185px;
+    height: 185px;
   }
 
   .floating-badge {
-    padding: 6px 11px;
-    font-size: 10.5px;
+    padding: 4px 9px;
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .badge-react {
+    top: -5px;
+    left: -12px;
+  }
+
+  .badge-java {
+    top: 0;
+    right: -15px;
+  }
+
+  .badge-node {
+    bottom: 5px;
+    left: -15px;
+  }
+
+  .badge-mongo {
+    bottom: -5px;
+    right: -12px;
   }
 
   .highlights-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .highlight-item {
+    padding: 8px 12px;
   }
 
   .bio-card {
-    padding: 20px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
   }
 
-  .editor-body {
-    font-size: 12px;
-    padding: 16px 12px;
+  .about-description {
+    font-size: 13px;
+    line-height: 1.5;
   }
 }

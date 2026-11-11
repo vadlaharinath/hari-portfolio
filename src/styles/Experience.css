@@ -860,63 +860,219 @@
    RESPONSIVE DESIGN (TABLETS & MOBILE)
    ======================================================== */
 
-@media (max-width: 960px) {
+@media (max-width: 860px) {
   .experience-pin-container {
-    padding: 72px 4% 20px;
-    height: auto;
-    min-height: 100vh;
+    padding: clamp(65px, 8.5vh, 75px) 16px clamp(10px, 1.8vh, 16px);
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
+  .experience-inner-content {
+    gap: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .experience-header-bar {
+    padding-bottom: 6px;
+    align-items: center;
+  }
+
+  .experience-main-title {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 1px;
+  }
+
+  .experience-header-controls {
+    gap: 8px;
+  }
+
+  .experience-nav-arrows {
+    display: none; /* ID card has full Next/Prev controls on card */
+  }
+
+  .experience-step-counter {
+    padding: 3px 10px;
+    font-size: 11px;
+    gap: 3px;
+  }
+
+  .step-num-active {
+    font-size: 15px;
+  }
+
+  .step-num-total {
+    font-size: 11px;
+  }
+
+  /* Focus solely on the authentic cotton lanyard + ID Badge on mobile */
   .experience-three-col-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+    min-height: unset;
+    gap: 0;
   }
 
   .experience-left-stage {
-    height: auto;
-    min-height: 320px;
-  }
-
-  .experience-slide-panel {
-    text-align: left;
-    align-items: flex-start;
-    padding-right: 0;
-  }
-
-  .left-meta-row,
-  .left-skills-row,
-  .left-cta-row {
-    justify-content: flex-start;
-  }
-
-  .left-org-name {
-    font-size: 22px;
+    display: none;
   }
 
   .experience-middle-line-col {
     display: none;
   }
 
+  .experience-right-side {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .id-lanyard-hanger {
+    margin-bottom: -6px;
+  }
+
+  .id-cotton-strap {
+    width: 24px;
+    height: 26px;
+  }
+
+  .id-metal-crimp {
+    width: 26px;
+    height: 5px;
+  }
+
+  .id-swivel-clasp {
+    width: 16px;
+    height: 16px;
+  }
+
+  .id-clasp-ring {
+    width: 11px;
+    height: 6px;
+    bottom: -3px;
+  }
+
   .id-card-frame {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .experience-main-title {
-    font-size: 24px;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.15),
+                0 4px 12px -2px rgba(67, 56, 202, 0.12);
   }
 
-  .left-org-name {
-    font-size: 19px;
+  .id-card-top-slot {
+    height: 20px;
   }
 
-  .experience-left-stage {
-    min-height: 300px;
+  .id-badge-hole {
+    width: 24px;
+    height: 3.5px;
+  }
+
+  .id-card-body {
+    padding: 10px 14px 8px;
+  }
+
+  .id-profile-header {
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    gap: 10px;
+  }
+
+  .id-avatar-frame {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .id-holder-name {
+    font-size: 13.5px;
+  }
+
+  .id-holder-title {
+    font-size: 10px;
   }
 
   .id-card-stage {
-    height: 220px;
+    position: relative;
+    width: 100%;
+    height: clamp(190px, 28vh, 220px);
+  }
+
+  .id-card-role {
+    font-size: 13.5px;
+  }
+
+  .id-grade-pill {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .id-card-tagline {
+    font-size: 10.5px;
+    margin-bottom: 3px;
+  }
+
+  .id-card-desc {
+    font-size: 10.5px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .id-card-skills {
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .id-skill-chip {
+    font-size: 9.5px;
+    padding: 2px 6px;
+  }
+
+  .id-card-footer {
+    margin-top: 4px;
+    padding-top: 6px;
+  }
+
+  .id-footer-btn {
+    padding: 3px 8px;
+    font-size: 10.5px;
+  }
+
+  .id-footer-prev {
+    padding: 2.5px 7px;
+  }
+
+  .id-footer-cta {
+    padding: 3px 9px;
+    font-size: 10.5px;
+  }
+
+  .footer-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .footer-dot.is-active {
+    width: 12px;
   }
 }

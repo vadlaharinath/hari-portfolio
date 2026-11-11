@@ -206,6 +206,14 @@
    ======================================================== */
 
 @media (max-width: 1100px) {
+  .skills-section {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+    padding: 85px 5% 40px;
+  }
+
   .skills-columns-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -213,19 +221,19 @@
 
 @media (max-width: 680px) {
   .skills-section {
-    padding: 70px 5%;
+    padding: 80px 4% 30px;
   }
 
   .skills-title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .skills-columns-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
 
   .skill-column-card {
-    padding: 24px 20px;
+    padding: 16px 16px;
   }
 }

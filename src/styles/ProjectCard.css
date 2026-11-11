@@ -168,12 +168,12 @@
 
 @media (max-width: 640px) {
   .project-card {
-    width: 310px;
-    min-height: 360px;
-    padding: 24px 20px;
+    width: 280px;
+    min-height: 280px;
+    padding: 16px 16px;
   }
 
   .project-title {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
