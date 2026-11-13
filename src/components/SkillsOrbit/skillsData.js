@@ -55,8 +55,6 @@ const skillsData = [
       "DSA",
       "SDLC",
       "Agile",
-      "Hackathon",
-      "Training",
     ],
   },
 ];

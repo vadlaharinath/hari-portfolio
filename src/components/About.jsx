@@ -1,9 +1,63 @@
 import { memo } from "react";
-import { FaGraduationCap, FaCode, FaRocket } from "react-icons/fa";
-import { SiReact, SiNodedotjs, SiMongodb } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaCode,
+  FaRocket,
+  FaJava,
+  FaAws,
+  FaCube,
+  FaCss3Alt,
+} from "react-icons/fa";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiJavascript,
+  SiHtml5,
+  SiExpress,
+  SiBootstrap,
+  SiSpring,
+  SiSpringboot,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiJsonwebtokens,
+} from "react-icons/si";
+import {
+  TbApi,
+  TbBinaryTree,
+  TbInfinity,
+  TbBrandVscode,
+} from "react-icons/tb";
 import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
 import "../styles/About.css";
+
+// Skills that stream from right to left in laptop view and disappear at the user's image
+const ABOUT_STREAM_SKILLS = [
+  { name: "React.js", icon: SiReact, color: "#61DAFB" },
+  { name: "Java", icon: FaJava, color: "#EA580C" },
+  { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#539E43" },
+  { name: "Express.js", icon: SiExpress, color: "#0284C7" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "MySQL", icon: SiMysql, color: "#00758F" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
+  { name: "AWS", icon: FaAws, color: "#FF9900" },
+  { name: "Spring", icon: SiSpring, color: "#6DB33F" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+  { name: "GitHub", icon: SiGithub, color: "#181717" },
+  { name: "VS Code", icon: TbBrandVscode, color: "#007ACC" },
+  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+  { name: "REST API", icon: TbApi, color: "#0284C7" },
+  { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Agile", icon: TbInfinity, color: "#10B981" },
+  { name: "DSA", icon: TbBinaryTree, color: "#06B6D4" },
+  { name: "OOP", icon: FaCube, color: "#A855F7" },
+  { name: "JWT", icon: SiJsonwebtokens, color: "#D63AFF" },
+];
 
 function About() {
   return (
@@ -61,7 +115,7 @@ function About() {
 
           <div className="bio-card">
             <p className="about-description">
-              Hi, I'm <span className="highlight">vadla hari</span>, a
+              Hi, I'm <span className="highlight">Hari</span>, a
               passionate Full Stack Developer and Computer Science graduate from{" "}
               <span className="institution">
                 Sathyabama Institute of Science and Technology
@@ -81,7 +135,7 @@ function About() {
             </p>
           </div>
 
-          {/* Key Value Highlights Grid */}
+          {/* Key Value Highlights Grid (Mobile and Tablet View Only) */}
           <div className="highlights-grid">
             <div className="highlight-item">
               <div className="highlight-icon icon-grad">
@@ -111,6 +165,30 @@ function About() {
                 <h4>Open for Opportunities</h4>
                 <p>Full-Time & Freelance</p>
               </div>
+            </div>
+          </div>
+
+          {/* Laptop View Only: Skills stream moving right-to-left towards avatar image and disappearing */}
+          <div className="about-skills-stream" aria-label="Skills Stream">
+            <div className="about-stream-track">
+              {ABOUT_STREAM_SKILLS.map((skill, idx) => {
+                const Icon = skill.icon;
+                return (
+                  <div key={`about-chip-1-${idx}`} className="about-stream-chip">
+                    <Icon className="about-stream-icon" style={{ color: skill.color }} />
+                    <span className="about-stream-label">{skill.name}</span>
+                  </div>
+                );
+              })}
+              {ABOUT_STREAM_SKILLS.map((skill, idx) => {
+                const Icon = skill.icon;
+                return (
+                  <div key={`about-chip-2-${idx}`} className="about-stream-chip">
+                    <Icon className="about-stream-icon" style={{ color: skill.color }} />
+                    <span className="about-stream-label">{skill.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

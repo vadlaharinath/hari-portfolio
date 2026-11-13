@@ -62,7 +62,7 @@
   padding: 7px;
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 45%, #06b6d4 100%);
   box-shadow: 0 24px 50px -10px rgba(99, 102, 241, 0.32),
-              0 0 20px rgba(6, 182, 212, 0.2);
+    0 0 20px rgba(6, 182, 212, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,11 +73,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%; /* Perfect framing: shows full head, hairline, face and shoulders naturally without cropping */
+  object-position: center 12%;
+  /* Perfect framing: shows full head, hairline, face and shoulders naturally without cropping */
   border-radius: 50%;
   border: 5px solid #ffffff;
   background: #ffffff;
-  filter: none !important; /* Preserves exact natural skin tones & colors */
+  filter: none !important;
+  /* Preserves exact natural skin tones & colors */
   box-shadow: inset 0 0 14px rgba(15, 23, 42, 0.08);
 }
 
@@ -93,7 +95,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.12),
-              0 0 0 1px rgba(255, 255, 255, 0.9);
+    0 0 0 1px rgba(255, 255, 255, 0.9);
   font-size: 13px;
   font-weight: 700;
   color: #0f172a;
@@ -157,6 +159,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-12px) rotate(2deg);
   }
@@ -166,6 +169,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(12px) rotate(-2deg);
   }
@@ -175,6 +179,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-14px) rotate(1deg);
   }
@@ -184,6 +189,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(10px) rotate(-1.5deg);
   }
@@ -193,6 +199,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(12px) rotate(-2deg);
   }
@@ -202,6 +209,7 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-14px) rotate(1deg);
   }
@@ -267,12 +275,96 @@
   color: #4f46e5;
 }
 
-/* Highlights Grid */
+/* Highlights Grid (Hidden in laptop view, shown on mobile & tablet) */
 .highlights-grid {
-  display: grid;
+  display: none !important;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 26px;
+}
+
+/* Laptop View: Moving skills streaming from right to left towards avatar, then disappearing */
+.about-skills-stream {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 24px;
+  padding: 8px 0;
+  overflow: hidden;
+  position: relative;
+  /* Left edge fades smoothly to transparent so skills dissolve and disappear as they reach the avatar image on the left */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 16%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 16%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.about-stream-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  animation: aboutStreamRightToLeft 34s linear infinite;
+  will-change: transform;
+}
+
+.about-stream-track:hover {
+  animation-play-state: paused;
+}
+
+.about-stream-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.06),
+              0 2px 6px rgba(99, 102, 241, 0.04);
+  flex-shrink: 0;
+  user-select: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-stream-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(99, 102, 241, 0.16);
+}
+
+.about-stream-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.about-stream-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+
+/* Skills move from right to left towards avatar image */
+@keyframes aboutStreamRightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .highlight-item {
@@ -339,7 +431,7 @@
   background: #ffffff;
   border: 1px solid rgba(99, 102, 241, 0.2);
   box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.12),
-              0 6px 16px -4px rgba(15, 23, 42, 0.04);
+    0 6px 16px -4px rgba(15, 23, 42, 0.04);
   overflow: hidden;
   font-family: var(--font-code);
   transition: transform 0.3s ease;
@@ -476,9 +568,12 @@
 }
 
 @keyframes blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -492,6 +587,17 @@
 /* ========================================================
    RESPONSIVE
    ======================================================== */
+
+/* Tablet & Mobile (up to 1024px): Keep highlights grid visible, hide skills stream */
+@media (max-width: 1024px) {
+  .highlights-grid {
+    display: grid !important;
+  }
+
+  .about-skills-stream {
+    display: none !important;
+  }
+}
 
 @media (max-width: 860px) {
   .about-section {

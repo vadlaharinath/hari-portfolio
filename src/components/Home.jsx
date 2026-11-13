@@ -1,9 +1,63 @@
 import { memo } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { FaArrowRight, FaDownload, FaJava } from "react-icons/fa";
-import { SiReact, SiNodedotjs, SiMongodb } from "react-icons/si";
+import {
+  FaArrowRight,
+  FaDownload,
+  FaJava,
+  FaAws,
+  FaCube,
+  FaCss3Alt,
+} from "react-icons/fa";
+import {
+  SiReact,
+  SiJavascript,
+  SiHtml5,
+  SiNodedotjs,
+  SiExpress,
+  SiBootstrap,
+  SiMongodb,
+  SiSpring,
+  SiSpringboot,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiJsonwebtokens,
+} from "react-icons/si";
+import {
+  TbApi,
+  TbBinaryTree,
+  TbInfinity,
+  TbBrandVscode,
+} from "react-icons/tb";
 import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
 import "../styles/Home.css";
+
+// All 24 authentic skills configured around the 3D Earth
+const EARTH_TICKER_SKILLS = [
+  { name: "React.js", icon: SiReact, color: "#61DAFB" },
+  { name: "Java", icon: FaJava, color: "#EA580C" },
+  { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#539E43" },
+  { name: "Express.js", icon: SiExpress, color: "#0284C7" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "MySQL", icon: SiMysql, color: "#00758F" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
+  { name: "AWS", icon: FaAws, color: "#FF9900" },
+  { name: "Spring", icon: SiSpring, color: "#6DB33F" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+  { name: "GitHub", icon: SiGithub, color: "#181717" },
+  { name: "VS Code", icon: TbBrandVscode, color: "#007ACC" },
+  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+  { name: "REST API", icon: TbApi, color: "#0284C7" },
+  { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Agile", icon: TbInfinity, color: "#10B981" },
+  { name: "DSA", icon: TbBinaryTree, color: "#06B6D4" },
+  { name: "OOP", icon: FaCube, color: "#A855F7" },
+  { name: "JWT", icon: SiJsonwebtokens, color: "#D63AFF" },
+];
 
 function Home() {
   return (
@@ -161,6 +215,30 @@ function Home() {
             <div className="stat-item">
               <span className="stat-number">25+</span>
               <span className="stat-label">Skills Mastered</span>
+            </div>
+          </div>
+
+          {/* Mobile & Tablet Only: Earth Skills Ticker moving left to right */}
+          <div className="home-skills-ticker" aria-label="Earth Skills Marquee">
+            <div className="home-ticker-track">
+              {EARTH_TICKER_SKILLS.map((skill, idx) => {
+                const Icon = skill.icon;
+                return (
+                  <div key={`skill-track1-${idx}`} className="home-ticker-chip">
+                    <Icon className="home-ticker-icon" style={{ color: skill.color }} />
+                    <span className="home-ticker-label">{skill.name}</span>
+                  </div>
+                );
+              })}
+              {EARTH_TICKER_SKILLS.map((skill, idx) => {
+                const Icon = skill.icon;
+                return (
+                  <div key={`skill-track2-${idx}`} className="home-ticker-chip">
+                    <Icon className="home-ticker-icon" style={{ color: skill.color }} />
+                    <span className="home-ticker-label">{skill.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -23,8 +23,6 @@ import {
   FaJava,
   FaAws,
   FaCube,
-  FaTrophy,
-  FaGraduationCap,
   FaCss3Alt,
 } from "react-icons/fa";
 import {
@@ -215,14 +213,6 @@ const SKILLS_CONFIG = [
     lon: (270 * Math.PI) / 180,
     extraDistance: 0.14,
   },
-  {
-    name: "Hackathon",
-    icon: FaTrophy,
-    color: "#F59E0B",
-    lat: (-20 * Math.PI) / 180,
-    lon: (342 * Math.PI) / 180,
-    extraDistance: 0.32,
-  },
 
   // Lower Southern Hemisphere & Deep Space (bottom)
   {
@@ -256,14 +246,6 @@ const SKILLS_CONFIG = [
     lat: (-56 * Math.PI) / 180,
     lon: (216 * Math.PI) / 180,
     extraDistance: 0.36,
-  },
-  {
-    name: "Training",
-    icon: FaGraduationCap,
-    color: "#EC4899",
-    lat: (-44 * Math.PI) / 180,
-    lon: (288 * Math.PI) / 180,
-    extraDistance: 0.22,
   },
 ];
 
@@ -456,7 +438,7 @@ function SkillsOrbit() {
         }
         try {
           e.currentTarget.setPointerCapture?.(e.pointerId);
-        } catch {}
+        } catch { }
       } else {
         return;
       }
@@ -471,7 +453,7 @@ function SkillsOrbit() {
     if (dragStartRef.current?.pointerId !== undefined) {
       try {
         e.currentTarget.releasePointerCapture?.(e.pointerId);
-      } catch {}
+      } catch { }
     }
     dragStartRef.current = null;
     isDraggingRef.current = false;
