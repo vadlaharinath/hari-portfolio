@@ -543,38 +543,15 @@
     padding: 7px 12px;
   }
 
-  /* Earth animation comes below content on mobile with strict boundary & isolation */
+  /* Earth animation comes below content on mobile: exact previous animation, just with space upper and down */
   .about-mobile-orbit {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 380px;
-    height: 300px;
-    margin: 24px auto 28px;
+    margin-top: 36px;
+    margin-bottom: 36px;
     position: relative;
-    overflow: hidden !important;
-    border-radius: 20px;
-    isolation: isolate;
-  }
-
-  .about-mobile-orbit .skills-orbit-section {
-    width: 100% !important;
-    min-height: 300px !important;
-    height: 300px !important;
-    max-height: 300px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    background: transparent !important;
-  }
-
-  .about-mobile-orbit .orbit-wrapper {
-    width: 100% !important;
-    height: 300px !important;
-    max-height: 300px !important;
-    overflow: hidden !important;
-    margin: 0 auto !important;
-    background: transparent !important;
+    overflow: visible;
   }
 }
