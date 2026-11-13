@@ -317,23 +317,151 @@
   min-height: 580px;
 }
 
+/* Mobile-Only Photo (Hidden on desktop) */
+.home-mobile-photo {
+  display: none;
+}
+
 /* ========================================================
    RESPONSIVE
    ======================================================== */
 
-@media (max-width: 1080px) {
+@media (max-width: 860px) {
   .home-section {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     max-height: none;
     overflow: visible;
-    padding: 85px 5% 40px;
+    padding: 68px 5% 42px;
   }
 
   .home-container {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
+    gap: 16px;
+  }
+
+  /* Photo with 4 floating tech badges comes first on mobile */
+  .home-mobile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 6px 0 10px;
+  }
+
+  .home-mobile-composition {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 172px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-mobile-aura {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, rgba(6, 182, 212, 0.16) 50%, transparent 75%);
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  /* Photo is slightly bigger (136px diameter) */
+  .home-avatar-ring {
+    position: relative;
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    padding: 4.5px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 45%, #06b6d4 100%);
+    box-shadow: 0 12px 28px -6px rgba(99, 102, 241, 0.38),
+                0 0 16px rgba(6, 182, 212, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .home-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    border-radius: 50%;
+    border: 3.5px solid #ffffff;
+    background: #ffffff;
+  }
+
+  /* Floating Skills Badges: Little bit small, neat pill design */
+  .home-mob-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3.5px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09),
+                0 0 0 1px rgba(226, 232, 240, 0.85);
+    font-size: 10px;
+    font-weight: 700;
+    color: #0f172a;
+    z-index: 3;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .mob-badge-icon {
+    font-size: 12.5px;
+    flex-shrink: 0;
+  }
+
+  .mob-badge-icon.icon-react {
+    color: #00d8ff;
+  }
+
+  .mob-badge-icon.icon-java {
+    color: #ea580c;
+  }
+
+  .mob-badge-icon.icon-node {
+    color: #16a34a;
+  }
+
+  .mob-badge-icon.icon-mongo {
+    color: #10b981;
+  }
+
+  /* Positioning around the photo matching Screenshot 8 */
+  .badge-mob-react {
+    top: 6px;
+    left: 2px;
+    border-left: 2.5px solid #00d8ff;
+  }
+
+  .badge-mob-java {
+    top: 6px;
+    right: 2px;
+    border-left: 2.5px solid #ea580c;
+  }
+
+  .badge-mob-node {
+    bottom: 6px;
+    left: 4px;
+    border-left: 2.5px solid #16a34a;
+  }
+
+  .badge-mob-mongo {
+    bottom: 6px;
+    right: 4px;
+    border-left: 2.5px solid #10b981;
   }
 
   .left-container {
@@ -344,51 +472,46 @@
   }
 
   .status-pill {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 10px;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+
+  .name-block {
+    margin-bottom: 2px;
+  }
+
+  .greeting {
+    font-size: 13px;
+    margin-bottom: 1px;
   }
 
   .name {
-    font-size: clamp(32px, 6vw, 42px);
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .role {
+    font-size: 16px;
+    margin: 3px 0 8px;
   }
 
   .typing-box {
     width: 100%;
-    max-width: 520px;
+    max-width: 480px;
+    padding: 7px 12px;
+    margin-bottom: 10px;
   }
 
-  .buttons {
+  .typing-body {
+    font-size: 12px;
     justify-content: center;
-  }
-
-  .quick-stats {
-    justify-content: center;
-  }
-
-  .right-container.home-orbit-container {
-    width: 100%;
-    height: 380px;
-    min-height: 340px;
-    max-height: 400px;
-  }
-}
-
-@media (max-width: 600px) {
-  .home-section {
-    padding: 80px 4% 30px;
-  }
-
-  .name {
-    font-size: 32px;
-  }
-
-  .role {
-    font-size: 17px;
   }
 
   .description {
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.5;
+    margin-bottom: 12px;
+    max-width: 460px;
   }
 
   .buttons {
@@ -396,19 +519,21 @@
     width: 100%;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 12px;
   }
 
   .btn-primary, .btn-secondary {
-    padding: 8px 18px;
+    padding: 8px 16px;
     font-size: 12.5px;
     flex: 1;
-    max-width: 170px;
+    max-width: 160px;
     justify-content: center;
   }
 
   .quick-stats {
     gap: 10px;
-    padding-top: 10px;
+    padding-top: 8px;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -420,10 +545,8 @@
     font-size: 10px;
   }
 
+  /* Earth animation is moved to About section below content on mobile */
   .right-container.home-orbit-container {
-    height: 320px;
-    min-height: 290px;
-    max-height: 340px;
-    margin-top: 8px;
+    display: none;
   }
 }

@@ -219,21 +219,40 @@
   }
 }
 
+@media (max-width: 860px) {
+  .skills-section {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 44px 4% 24px;
+  }
+}
+
 @media (max-width: 680px) {
   .skills-section {
-    padding: 80px 4% 30px;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 36px 4% 22px;
+  }
+
+  .skills-header {
+    margin-bottom: 12px;
   }
 
   .skills-title {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 2px;
   }
 
   .skills-columns-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .skill-column-card {
-    padding: 16px 16px;
+    padding: 14px 14px;
   }
 }

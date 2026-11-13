@@ -484,82 +484,54 @@
   }
 }
 
+/* Mobile-Only Earth Animation (Hidden on desktop) */
+.about-mobile-orbit {
+  display: none;
+}
+
 /* ========================================================
    RESPONSIVE
    ======================================================== */
 
-@media (max-width: 1080px) {
+@media (max-width: 860px) {
   .about-section {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     max-height: none;
     overflow: visible;
-    padding: 85px 5% 40px;
+    padding: 48px 5% 28px;
   }
 
   .about-container {
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 16px;
   }
 
+  /* On mobile: Photo is shown on Home, so hide photo avatar side on About */
   .about-avatar-side {
-    position: static;
+    display: none;
   }
 
+  /* Content comes first on mobile */
   .about-content-side {
     max-width: 100%;
-  }
-
-  .highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .about-section {
-    padding: 80px 4% 30px;
+    width: 100%;
   }
 
   .about-heading {
-    font-size: 26px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 6px;
   }
 
-  .about-avatar-composition {
-    width: 210px;
-    height: 210px;
+  .bio-card {
+    padding: 12px 14px;
+    margin-bottom: 10px;
   }
 
-  .about-avatar-ring {
-    width: 185px;
-    height: 185px;
-  }
-
-  .floating-badge {
-    padding: 4px 9px;
-    font-size: 10px;
-    gap: 5px;
-  }
-
-  .badge-react {
-    top: -5px;
-    left: -12px;
-  }
-
-  .badge-java {
-    top: 0;
-    right: -15px;
-  }
-
-  .badge-node {
-    bottom: 5px;
-    left: -15px;
-  }
-
-  .badge-mongo {
-    bottom: -5px;
-    right: -12px;
+  .about-description {
+    font-size: 12.5px;
+    line-height: 1.5;
   }
 
   .highlights-grid {
@@ -568,16 +540,41 @@
   }
 
   .highlight-item {
-    padding: 8px 12px;
+    padding: 7px 12px;
   }
 
-  .bio-card {
-    padding: 14px 16px;
-    margin-bottom: 12px;
+  /* Earth animation comes below content on mobile with strict boundary & isolation */
+  .about-mobile-orbit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    height: 300px;
+    margin: 24px auto 28px;
+    position: relative;
+    overflow: hidden !important;
+    border-radius: 20px;
+    isolation: isolate;
   }
 
-  .about-description {
-    font-size: 13px;
-    line-height: 1.5;
+  .about-mobile-orbit .skills-orbit-section {
+    width: 100% !important;
+    min-height: 300px !important;
+    height: 300px !important;
+    max-height: 300px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  .about-mobile-orbit .orbit-wrapper {
+    width: 100% !important;
+    height: 300px !important;
+    max-height: 300px !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    background: transparent !important;
   }
 }

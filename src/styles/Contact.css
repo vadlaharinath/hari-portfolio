@@ -328,11 +328,19 @@
 
 @media (max-width: 640px) {
   .contact-section {
-    padding: 80px 4% 30px;
+    height: auto;
+    min-height: auto;
+    padding: 38px 4% 16px;
+  }
+
+  .contact-container {
+    gap: 20px;
+    margin-bottom: 16px;
   }
 
   .contact-heading {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 6px;
   }
 
   .email-highlight-box {
@@ -343,5 +351,9 @@
 
   .copy-btn {
     align-self: auto;
+  }
+
+  .portfolio-footer {
+    padding-top: 10px;
   }
 }

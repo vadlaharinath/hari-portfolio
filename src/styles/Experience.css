@@ -861,37 +861,53 @@
    ======================================================== */
 
 @media (max-width: 860px) {
+  .experience-pinned-section {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .experience-pin-container {
-    padding: clamp(65px, 8.5vh, 75px) 16px clamp(10px, 1.8vh, 16px);
+    padding: 60px 14px 12px;
     height: 100vh;
-    max-height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
   }
 
   .experience-inner-content {
-    gap: 8px;
-    height: 100%;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    height: auto;
   }
 
   .experience-header-bar {
-    padding-bottom: 6px;
+    width: 100%;
+    padding-bottom: 4px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7);
   }
 
   .experience-main-title {
-    font-size: 20px;
-    line-height: 1.2;
+    font-size: 19px;
+    line-height: 1.15;
     margin-top: 1px;
   }
 
   .experience-header-controls {
-    gap: 8px;
+    gap: 6px;
   }
 
   .experience-nav-arrows {
@@ -899,17 +915,17 @@
   }
 
   .experience-step-counter {
-    padding: 3px 10px;
-    font-size: 11px;
-    gap: 3px;
+    padding: 2px 9px;
+    font-size: 10.5px;
+    gap: 2px;
   }
 
   .step-num-active {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .step-num-total {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   /* Focus solely on the authentic cotton lanyard + ID Badge on mobile */
@@ -920,7 +936,6 @@
     justify-content: center;
     width: 100%;
     height: auto;
-    flex-grow: 1;
     min-height: unset;
     gap: 0;
   }
@@ -935,7 +950,7 @@
 
   .experience-right-side {
     width: 100%;
-    max-width: 340px;
+    max-width: 330px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -943,95 +958,95 @@
   }
 
   .id-lanyard-hanger {
-    margin-bottom: -6px;
+    margin-bottom: -5px;
   }
 
   .id-cotton-strap {
-    width: 24px;
-    height: 26px;
+    width: 22px;
+    height: 24px;
   }
 
   .id-metal-crimp {
-    width: 26px;
-    height: 5px;
+    width: 24px;
+    height: 4.5px;
   }
 
   .id-swivel-clasp {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
   }
 
   .id-clasp-ring {
-    width: 11px;
-    height: 6px;
+    width: 10px;
+    height: 5px;
     bottom: -3px;
   }
 
   .id-card-frame {
     width: 100%;
-    max-width: 340px;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.15),
-                0 4px 12px -2px rgba(67, 56, 202, 0.12);
+    max-width: 330px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px -6px rgba(15, 23, 42, 0.14),
+                0 3px 10px -2px rgba(67, 56, 202, 0.1);
   }
 
   .id-card-top-slot {
-    height: 20px;
+    height: 18px;
   }
 
   .id-badge-hole {
-    width: 24px;
-    height: 3.5px;
+    width: 22px;
+    height: 3px;
   }
 
   .id-card-body {
-    padding: 10px 14px 8px;
+    padding: 8px 12px 6px;
   }
 
   .id-profile-header {
-    padding-bottom: 6px;
-    margin-bottom: 6px;
-    gap: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    gap: 8px;
   }
 
   .id-avatar-frame {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
   }
 
   .id-holder-name {
-    font-size: 13.5px;
+    font-size: 13px;
   }
 
   .id-holder-title {
-    font-size: 10px;
+    font-size: 9.5px;
   }
 
   .id-card-stage {
     position: relative;
     width: 100%;
-    height: clamp(190px, 28vh, 220px);
+    height: 185px;
   }
 
   .id-card-role {
-    font-size: 13.5px;
+    font-size: 13px;
   }
 
   .id-grade-pill {
-    font-size: 10px;
-    padding: 2px 7px;
+    font-size: 9.5px;
+    padding: 1.5px 6px;
   }
 
   .id-card-tagline {
-    font-size: 10.5px;
-    margin-bottom: 3px;
+    font-size: 10px;
+    margin-bottom: 2px;
   }
 
   .id-card-desc {
-    font-size: 10.5px;
-    line-height: 1.4;
-    margin-bottom: 5px;
+    font-size: 10px;
+    line-height: 1.35;
+    margin-bottom: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -1039,32 +1054,32 @@
   }
 
   .id-card-skills {
-    gap: 4px;
-    margin-top: 4px;
+    gap: 3px;
+    margin-top: 3px;
   }
 
   .id-skill-chip {
-    font-size: 9.5px;
-    padding: 2px 6px;
+    font-size: 9px;
+    padding: 1.5px 5px;
   }
 
   .id-card-footer {
-    margin-top: 4px;
-    padding-top: 6px;
+    margin-top: 3px;
+    padding-top: 5px;
   }
 
   .id-footer-btn {
-    padding: 3px 8px;
-    font-size: 10.5px;
+    padding: 2.5px 7px;
+    font-size: 10px;
   }
 
   .id-footer-prev {
-    padding: 2.5px 7px;
+    padding: 2px 6px;
   }
 
   .id-footer-cta {
-    padding: 3px 9px;
-    font-size: 10.5px;
+    padding: 2.5px 8px;
+    font-size: 10px;
   }
 
   .footer-dot {
@@ -1073,6 +1088,6 @@
   }
 
   .footer-dot.is-active {
-    width: 12px;
+    width: 11px;
   }
 }

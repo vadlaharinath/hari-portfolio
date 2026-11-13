@@ -2,6 +2,7 @@ import { memo } from "react";
 import { FaGraduationCap, FaCode, FaRocket } from "react-icons/fa";
 import { SiReact, SiNodedotjs, SiMongodb } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
 import "../styles/About.css";
 
 function About() {
@@ -111,6 +112,11 @@ function About() {
                 <p>Full-Time & Freelance</p>
               </div>
             </div>
+          </div>
+
+          {/* Mobile-Only Earth Animation below content */}
+          <div className="about-mobile-orbit">
+            <SkillsOrbit />
           </div>
         </div>
       </div>

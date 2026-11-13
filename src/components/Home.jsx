@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { FaArrowRight, FaDownload } from "react-icons/fa";
+import { FaArrowRight, FaDownload, FaJava } from "react-icons/fa";
+import { SiReact, SiNodedotjs, SiMongodb } from "react-icons/si";
 import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
 import "../styles/Home.css";
 
@@ -11,6 +12,46 @@ function Home() {
       <div className="home-container">
         {/* Left Content Side */}
         <div className="left-container">
+          {/* Mobile-Only Photo with 4 Floating Skills Badges */}
+          <div className="home-mobile-photo">
+            <div className="home-mobile-composition">
+              <div className="home-mobile-aura" />
+
+              {/* Top-Left: React & Frontend */}
+              <div className="home-mob-badge badge-mob-react">
+                <SiReact className="mob-badge-icon icon-react" />
+                <span>React & Frontend</span>
+              </div>
+
+              {/* Top-Right: Java & Spring Boot */}
+              <div className="home-mob-badge badge-mob-java">
+                <FaJava className="mob-badge-icon icon-java" />
+                <span>Java & Spring Boot</span>
+              </div>
+
+              {/* Central Photo Ring (slightly larger) */}
+              <div className="home-avatar-ring">
+                <img
+                  src="/hari.jpeg"
+                  alt="Vadla Harinath"
+                  className="home-avatar-img"
+                />
+              </div>
+
+              {/* Bottom-Left: Node & Express */}
+              <div className="home-mob-badge badge-mob-node">
+                <SiNodedotjs className="mob-badge-icon icon-node" />
+                <span>Node & Express</span>
+              </div>
+
+              {/* Bottom-Right: MongoDB & SQL */}
+              <div className="home-mob-badge badge-mob-mongo">
+                <SiMongodb className="mob-badge-icon icon-mongo" />
+                <span>MongoDB & SQL</span>
+              </div>
+            </div>
+          </div>
+
           {/* Status Badge */}
           <div className="status-pill">
             <span className="status-ping" />
