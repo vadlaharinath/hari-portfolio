@@ -31,6 +31,7 @@ import {
   TbBrandVscode,
 } from "react-icons/tb";
 import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
+import ScrollRevealText from "./ScrollRevealText";
 import "../styles/Home.css";
 
 // All 24 authentic skills configured around the 3D Earth
@@ -170,12 +171,17 @@ function Home() {
             </div>
           </div>
 
-          <p className="description">
+          <ScrollRevealText
+            as="p"
+            className="description"
+            start="top 75%"
+            end="bottom 25%"
+          >
             Passionate Full Stack Developer with hands-on expertise across both
             MERN and Java Full Stack ecosystems. Experienced in building responsive,
             scalable web applications and actively interested in full-time roles as
             well as freelance projects.
-          </p>
+          </ScrollRevealText>
 
           {/* Action Buttons */}
           <div className="buttons">

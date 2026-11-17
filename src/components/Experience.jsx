@@ -4,9 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FaArrowRight,
   FaArrowLeft,
-  FaCheck,
-  FaChevronLeft,
-  FaChevronRight,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { experienceData } from "../data/experienceData";
@@ -112,7 +109,6 @@ function Experience() {
   }, [totalSlides, handleNext, handlePrev]);
 
   const currentItem = experienceData[activeIndex] || experienceData[0];
-  const middleLineProgressPercent = (activeIndex / (totalSlides - 1)) * 100;
 
   return (
     <section className="experience-pinned-section" id="experience" ref={sectionRef}>
@@ -129,35 +125,6 @@ function Experience() {
               <h2 className="experience-main-title">
                 Career &amp; <span className="experience-title-gradient">Milestones</span>
               </h2>
-            </div>
-
-            {/* Step Counter & Nav Controls */}
-            <div className="experience-header-controls">
-              <div className="experience-step-counter">
-                <span className="step-num-active">{currentItem.step}</span>
-                <span className="step-num-total">/ 0{totalSlides}</span>
-              </div>
-
-              <div className="experience-nav-arrows">
-                <button
-                  className="exp-arrow-btn"
-                  onClick={handlePrev}
-                  disabled={activeIndex === 0}
-                  title="Previous Milestone"
-                  aria-label="Previous Milestone"
-                >
-                  <FaChevronLeft />
-                </button>
-                <button
-                  className="exp-arrow-btn"
-                  onClick={handleNext}
-                  disabled={activeIndex === totalSlides - 1}
-                  title="Next Milestone"
-                  aria-label="Next Milestone"
-                >
-                  <FaChevronRight />
-                </button>
-              </div>
             </div>
           </div>
 
@@ -219,36 +186,7 @@ function Experience() {
               })}
             </div>
 
-            {/* 2. Middle Column: Central Connected Spine Line */}
-            <div className="experience-middle-line-col">
-              <div className="middle-line-track" />
-              <div
-                className="middle-line-progress"
-                style={{
-                  height: `${middleLineProgressPercent}%`,
-                }}
-              />
-
-              {experienceData.map((item, index) => {
-                const isActive = index === activeIndex;
-                const isCompleted = index < activeIndex;
-                return (
-                  <button
-                    key={item.id}
-                    className={`middle-milestone-node ${
-                      isActive ? "is-active" : ""
-                    } ${isCompleted ? "is-completed" : ""}`}
-                    onClick={() => scrollToMilestone(index)}
-                    title={`${item.step}: ${item.shortTitle} — ${item.organization}`}
-                  >
-                    {isActive && <div className="node-pulse-ring" />}
-                    {isCompleted ? <FaCheck /> : item.step}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* 3. Right Side: Authentic Cotton Lanyard & ID Pass Card */}
+            {/* 2. Right Side: Authentic Cotton Lanyard & ID Pass Card */}
             <div className="experience-right-side">
               {/* Lanyard System: Real Smooth Woven Cotton Strap + Swivel Lobster Clasp */}
               <div className="id-lanyard-hanger">

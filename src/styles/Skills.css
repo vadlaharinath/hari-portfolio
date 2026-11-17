@@ -155,6 +155,8 @@
   gap: 9px;
   padding-top: 18px;
   border-top: 1px solid #f1f5f9;
+  position: relative;
+  z-index: 2;
 }
 
 .skill-chip {
@@ -170,8 +172,70 @@
   border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
   cursor: pointer;
-  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  transform-origin: center center;
+}
+
+/* 1. Initial state (before scrolling): skill badges positioned at the top of the card box */
+.skill-column-card:not(.is-animating):not(.has-animated) .skill-chip {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-260px) scale(0.90, 1.10);
+  pointer-events: none;
+}
+
+/* 2. Scroll-triggered gravity falling animation with realistic squash & ball bounce */
+.skill-column-card.is-animating .skill-chip {
+  visibility: visible;
+  /* DURATION: increase this value to drop slower (e.g., 1350ms = slow & smooth, 1600ms = very slow) */
+  animation: gravityBallBounce 1350ms cubic-bezier(0.25, 1, 0.5, 1) var(--badge-delay, 0ms) both;
+  will-change: transform, opacity;
+}
+
+/* Realistic Gravity & Ball-Bouncing Keyframes:
+   - Badges start at the VERY TOP of the card box (colored bar / icon header area)
+   - Accelerates downward under gravity through the card box
+   - Lands with realistic impact squash (scaleX 1.12, scaleY 0.88)
+   - Bounces upward into a single natural rebound apex (scaleX 0.97, scaleY 1.03)
+   - Second landing with gentle cushion
+   - Settles perfectly into original position with zero layout shift */
+@keyframes gravityBallBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-260px) scale(0.90, 1.10);
+  }
+  14% {
+    opacity: 1;
+    transform: translateY(-180px) scale(0.94, 1.06);
+  }
+  52% {
+    opacity: 1;
+    transform: translateY(0) scale(1.12, 0.88);
+  }
+  68% {
+    opacity: 1;
+    transform: translateY(-15px) scale(0.97, 1.03);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(0) scale(1.03, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+/* 3. Settled permanent state: remains visible permanently, zero lag on hover */
+.skill-column-card.has-animated .skill-chip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.24s ease,
+              box-shadow 0.24s ease,
+              background 0.24s ease;
 }
 
 .skill-chip-icon {
@@ -199,6 +263,17 @@
 
 .skill-chip:hover .skill-chip-icon {
   transform: scale(1.22);
+}
+
+/* 4. Accessibility: Reduced motion instant appearance */
+@media (prefers-reduced-motion: reduce) {
+  .skills-section .skill-chip {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
 }
 
 /* ========================================================

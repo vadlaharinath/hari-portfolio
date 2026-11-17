@@ -6,12 +6,47 @@ import * as THREE from "three";
 import earthTexture from "./textures/earth.jpg";
 import "./EarthBackground.css";
 
+// Immediately preload texture so browser downloads and decodes it at startup
+useLoader.preload(THREE.TextureLoader, earthTexture);
+
 /* =========================================================================
    EARTH SIZE CONFIGURATION (MANUAL TUNING)
    - Change EARTH_RADIUS to increase or decrease the Earth globe size:
      1.2 = small | 1.65 = recommended balanced | 2.0 = large
    ========================================================================= */
 export const EARTH_RADIUS = 2.3;
+
+/* =====================================================
+   INSTANT EARTH FALLBACK (Zero Delay on Page Reload)
+===================================================== */
+function EarthFallback() {
+  return (
+    <group>
+      {/* Instant Earth base globe */}
+      <mesh>
+        <sphereGeometry args={[EARTH_RADIUS, 64, 64]} />
+        <meshStandardMaterial
+          color="#153e75"
+          roughness={0.95}
+          metalness={0}
+        />
+      </mesh>
+
+      {/* Blue atmospheric rim */}
+      <mesh scale={1.035}>
+        <sphereGeometry args={[EARTH_RADIUS, 48, 48]} />
+        <meshBasicMaterial
+          color="#258bff"
+          transparent
+          opacity={0.14}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </mesh>
+    </group>
+  );
+}
 
 /* =====================================================
    REALISTIC ROTATING EARTH
@@ -45,7 +80,7 @@ function Earth({ rotationRef, rotationSpeed = 0.11 }) {
 
       {/* Main Earth globe */}
       <mesh>
-        <sphereGeometry args={[EARTH_RADIUS, 96, 96]} />
+        <sphereGeometry args={[EARTH_RADIUS, 64, 64]} />
 
         <meshStandardMaterial
           map={texture}
@@ -56,7 +91,7 @@ function Earth({ rotationRef, rotationSpeed = 0.11 }) {
 
       {/* Blue atmospheric rim */}
       <mesh scale={1.035}>
-        <sphereGeometry args={[EARTH_RADIUS, 64, 64]} />
+        <sphereGeometry args={[EARTH_RADIUS, 48, 48]} />
 
         <meshBasicMaterial
           color="#258bff"
@@ -110,8 +145,8 @@ function SpaceScene({ rotationRef, rotationSpeed }) {
         color="#328cff"
       />
 
-      {/* Earth */}
-      <Suspense fallback={null}>
+      {/* Earth with Instant Fallback */}
+      <Suspense fallback={<EarthFallback />}>
         <Earth rotationRef={rotationRef} rotationSpeed={rotationSpeed} />
       </Suspense>
 

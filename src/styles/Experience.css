@@ -130,13 +130,13 @@
 }
 
 /* ========================================================
-   THREE COLUMN GRID: LEFT CONTENT + MIDDLE LINE + RIGHT CARD
+   TWO COLUMN GRID: LEFT CONTENT + RIGHT ID CARD
    ======================================================== */
 
 .experience-three-col-grid {
   display: grid;
-  grid-template-columns: 1fr 64px 1.15fr;
-  gap: 32px;
+  grid-template-columns: 1fr 1.12fr;
+  gap: 48px;
   align-items: center;
   width: 100%;
   min-height: 440px;

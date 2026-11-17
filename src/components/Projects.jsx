@@ -1,5 +1,6 @@
 import { memo } from "react";
 import ProjectCard from "./ProjectCard";
+import ScrollRevealText from "./ScrollRevealText";
 import projectsData from "../data/projectsData";
 import "../styles/Projects.css";
 
@@ -18,10 +19,15 @@ function Projects() {
             Featured <span className="projects-gradient">Projects</span>
           </h2>
 
-          <p className="projects-description">
+          <ScrollRevealText
+            as="p"
+            className="projects-description"
+            start="top 85%"
+            end="bottom 55%"
+          >
             A selection of modern web applications I've designed and engineered.
             Focused on clean architecture, scalable APIs, and intuitive user experiences.
-          </p>
+          </ScrollRevealText>
         </div>
 
         {/* Projects Slider Track */}

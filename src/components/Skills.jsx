@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState, useEffect, useRef } from "react";
 import {
   FaLaptopCode,
   FaServer,
@@ -34,7 +34,116 @@ import {
   TbBrandVscode,
   TbHierarchy,
 } from "react-icons/tb";
+import ScrollRevealText from "./ScrollRevealText";
 import "../styles/Skills.css";
+
+// Individual Card Component with independent scroll-triggered IntersectionObserver
+const SkillCard = memo(function SkillCard({ cat, idx }) {
+  const cardRef = useRef(null);
+  const [cardAnimState, setCardAnimState] = useState("initial"); // "initial" | "animating" | "completed"
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    // Respect prefers-reduced-motion for accessibility
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setCardAnimState("completed");
+      return;
+    }
+
+    // Trigger animation independently when ~25% of this specific card enters viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCardAnimState("animating");
+            observer.disconnect();
+
+            // Total duration: stagger delay + 1350ms gravity animation + buffer
+            const baseCardDelay = (idx % 3) * 120;
+            const totalDuration = baseCardDelay + (cat.skills.length * 140) + 1550;
+            const timer = setTimeout(() => {
+              setCardAnimState("completed");
+            }, totalDuration);
+
+            return () => clearTimeout(timer);
+          }
+        });
+      },
+      {
+        threshold: 0.25, // 25% visibility of this individual card
+        rootMargin: "0px 0px -30px 0px",
+      }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [cat.skills.length, idx]);
+
+  const CatIcon = cat.icon;
+  // Natural delay when multiple cards in the same row enter together
+  const baseCardDelay = (idx % 3) * 120;
+
+  return (
+    <div
+      ref={cardRef}
+      className={`skill-column-card ${cardAnimState === "animating"
+        ? "is-animating"
+        : cardAnimState === "completed"
+          ? "has-animated"
+          : ""
+        }`}
+      style={{
+        "--card-color": cat.color,
+        "--card-gradient": cat.accentGradient,
+      }}
+    >
+      {/* Top Header */}
+      <div className="card-top">
+        <div className="cat-icon-box">
+          <CatIcon />
+        </div>
+        <span className="skills-count-badge">
+          {cat.skills.length} Skills
+        </span>
+      </div>
+
+      {/* Title & Description */}
+      <h3 className="card-title">{cat.title}</h3>
+      <p className="card-desc">{cat.description}</p>
+
+      {/* Skills Chips with Gravity Ball-Bouncing Animation */}
+      <div className="card-chips-wrap">
+        {cat.skills.map((skill, sIdx) => {
+          const SkillIcon = skill.icon;
+          return (
+            <span
+              key={sIdx}
+              className="skill-chip"
+              style={{
+                "--skill-color": skill.color,
+                "--badge-delay": `${baseCardDelay + sIdx * 140}ms`,
+              }}
+            >
+              <span className="skill-chip-icon">
+                <SkillIcon />
+              </span>
+              <span className="skill-chip-name">{skill.name}</span>
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+});
 
 function Skills() {
   const categories = [
@@ -132,62 +241,22 @@ function Skills() {
             <span className="skills-gradient">I Work With</span>
           </h2>
 
-          <p className="skills-subtitle">
+          <ScrollRevealText
+            as="p"
+            className="skills-subtitle"
+            start="top 85%"
+            end="bottom 55%"
+          >
             A comprehensive overview of modern Full Stack frameworks, databases, core languages,
             and software engineering practices I use to build scalable products.
-          </p>
+          </ScrollRevealText>
         </div>
 
-        {/* Column-wise Skill Cards Grid (3 Columns) */}
+        {/* Column-wise Skill Cards Grid (3 Columns) with Independent Per-Card Scroll Trigger */}
         <div className="skills-columns-grid">
-          {categories.map((cat, idx) => {
-            const CatIcon = cat.icon;
-            return (
-              <div
-                key={idx}
-                className="skill-column-card"
-                style={{
-                  "--card-color": cat.color,
-                  "--card-gradient": cat.accentGradient,
-                }}
-              >
-                {/* Top Header */}
-                <div className="card-top">
-                  <div className="cat-icon-box">
-                    <CatIcon />
-                  </div>
-                  <span className="skills-count-badge">
-                    {cat.skills.length} Skills
-                  </span>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="card-title">{cat.title}</h3>
-                <p className="card-desc">{cat.description}</p>
-
-                {/* Skills Chips with Authentic Brand Logos */}
-                <div className="card-chips-wrap">
-                  {cat.skills.map((skill, sIdx) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <span
-                        key={sIdx}
-                        className="skill-chip"
-                        style={{
-                          "--skill-color": skill.color,
-                        }}
-                      >
-                        <span className="skill-chip-icon">
-                          <SkillIcon />
-                        </span>
-                        <span className="skill-chip-name">{skill.name}</span>
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+          {categories.map((cat, idx) => (
+            <SkillCard key={cat.title || idx} cat={cat} idx={idx} />
+          ))}
         </div>
       </div>
     </section>

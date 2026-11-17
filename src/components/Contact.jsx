@@ -119,13 +119,6 @@ function Contact() {
           </div>
         </div>
       </div>
-
-      {/* Modern Footer */}
-      <footer className="portfolio-footer">
-        <p className="footer-copyright">
-          © {new Date().getFullYear()} <span className="footer-name">Vadla Harinath</span>. Crafted with modern Full Stack architecture, Three.js 3D & interactive UI.
-        </p>
-      </footer>
     </section>
   );
 }

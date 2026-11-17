@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { FaGithub, FaExternalLinkAlt, FaFolder } from "react-icons/fa";
+import ScrollRevealText from "./ScrollRevealText";
 import "../styles/ProjectCard.css";
 
 function ProjectCard({ project, index = 0 }) {
@@ -28,8 +29,16 @@ function ProjectCard({ project, index = 0 }) {
       {/* Project Title */}
       <h3 className="project-title">{project.title}</h3>
 
-      {/* Description */}
-      <p className="project-description">{project.description}</p>
+      {/* Description with Scroll-Driven Word Reveal */}
+      <ScrollRevealText
+        as="p"
+        className="project-description"
+        triggerSelector="#projects"
+        start="top 75%"
+        end="bottom 50%"
+      >
+        {project.description}
+      </ScrollRevealText>
 
       {/* Technologies Used */}
       <div className="tech-container">

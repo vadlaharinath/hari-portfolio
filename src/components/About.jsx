@@ -31,6 +31,7 @@ import {
   TbBrandVscode,
 } from "react-icons/tb";
 import SkillsOrbit from "./SkillsOrbit/SkillsOrbit";
+import ScrollRevealText from "./ScrollRevealText";
 import "../styles/About.css";
 
 // Skills that stream from right to left in laptop view and disappear at the user's image
@@ -114,7 +115,12 @@ function About() {
           </h2>
 
           <div className="bio-card">
-            <p className="about-description">
+            <ScrollRevealText
+              as="p"
+              className="about-description"
+              start="top 85%"
+              end="bottom 52%"
+            >
               Hi, I'm <span className="highlight">Hari</span>, a
               passionate Full Stack Developer and Computer Science graduate from{" "}
               <span className="institution">
@@ -125,14 +131,19 @@ function About() {
               Node.js, Express, MongoDB) and{" "}
               <strong style={{ color: "#b45309" }}>Java Full Stack</strong> (Java,
               Spring Boot, MySQL, REST APIs) architectures.
-            </p>
+            </ScrollRevealText>
 
-            <p className="about-description">
+            <ScrollRevealText
+              as="p"
+              className="about-description"
+              start="top 85%"
+              end="bottom 52%"
+            >
               I am actively interested in <strong>Freelance Projects</strong> as
               well as full-time software engineering roles. Whether you need an
               end-to-end web application built from scratch or a dedicated
               developer for your team, I am ready to collaborate and deliver.
-            </p>
+            </ScrollRevealText>
           </div>
 
           {/* Key Value Highlights Grid (Mobile and Tablet View Only) */}
