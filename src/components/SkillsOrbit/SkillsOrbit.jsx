@@ -330,12 +330,19 @@ function SkillsOrbit() {
 
       const rot = rotationRef.current;
       const height = wrapper.clientHeight || 800;
+      const width = wrapper.clientWidth || window.innerWidth;
+      const isMobile = width <= 768;
 
       // 1 unit in pixels based on camera distance (8.5) and vertical FOV (42)
       const unit = height / 6.526;
 
       // Earth radius in screen pixels
       const earthRadiusPx = EARTH_SIZE * unit;
+
+      // In mobile view only: merge left and right orbit inwards so skills are fully visible
+      // Desktop / website view remains 100% unchanged
+      const spaceBetween = isMobile ? 0.35 : SPACE_BETWEEN_EARTH_AND_SKILLS;
+      const maxSafeX = isMobile ? Math.max(105, (width / 2) - 38) : 9999;
 
       elements.forEach((element) => {
         const index = Number(element.dataset.index);
@@ -344,16 +351,23 @@ function SkillsOrbit() {
 
         // Spherical 3D coordinates anchored to the rotating Earth
         // Radius includes Earth radius + Space between Earth and skills + extra altitude
-        const worldRadius =
-          EARTH_SIZE + SPACE_BETWEEN_EARTH_AND_SKILLS + (item.extraDistance || 0);
+        const extraDist = isMobile
+          ? (item.extraDistance || 0) * 0.3
+          : (item.extraDistance || 0);
+        const worldRadius = EARTH_SIZE + spaceBetween + extraDist;
         const radiusPx = worldRadius * unit;
 
         const angle = item.lon + rot;
         const cosLat = Math.cos(item.lat);
         const sinLat = Math.sin(item.lat);
 
+        // In mobile view only: horizontally compress left and right reach so badges never clip
+        const mobileXCompress = isMobile
+          ? Math.min(1, maxSafeX / (radiusPx || 1))
+          : 1;
+
         // x: horizontal coordinate
-        const x = radiusPx * cosLat * Math.sin(angle);
+        const x = radiusPx * cosLat * Math.sin(angle) * mobileXCompress;
         // y: vertical coordinate (-y is top, +y is bottom in screen space)
         const y = -radiusPx * sinLat;
         // z: depth coordinate relative to Earth center (z > 0 is front, z < 0 is back)

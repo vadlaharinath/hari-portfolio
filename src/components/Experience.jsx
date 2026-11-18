@@ -64,7 +64,9 @@ function Experience() {
         pin: pinContainer,
         start: "top top",
         end: () => `+=${window.innerHeight * 2.8}`, // 2.8 viewports for a comfortable, smooth scroll pace
-        scrub: 0.5,
+        scrub: 0.35,
+        fastScrollEnd: true,
+        preventOverlaps: true,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           // Stable index mapping with 0.2 width per milestone (no edge flickering)
@@ -215,6 +217,8 @@ function Experience() {
                       <img
                         src="/hari.jpeg"
                         alt="Vadla Harinath"
+                        width="160"
+                        height="160"
                         className="id-avatar-img"
                       />
                       <span className="id-avatar-verified" />

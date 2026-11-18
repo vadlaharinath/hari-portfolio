@@ -14,18 +14,30 @@ import Contact from "./components/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// High-performance ScrollTrigger config (Crontle-inspired responsiveness)
+ScrollTrigger.config({
+  limitCallbacks: true,
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
+});
+
 function App() {
   useEffect(() => {
+    // Check for prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     // Ultra-smooth hardware-accelerated scroll physics across the entire website
-    // Exponential momentum decay curve (Apple / Awwwards standard)
+    // Native responsive touch on mobile, smooth momentum on mouse wheel
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: prefersReducedMotion ? 0 : 0.95,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 0.95,
-      touchMultiplier: 1.6,
+      smoothWheel: !prefersReducedMotion,
+      syncTouch: false, // Preserves native 120Hz mobile touch scrolling
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
       infinite: false,
     });
 
@@ -51,18 +63,23 @@ function App() {
         if (targetElement) {
           e.preventDefault();
           const offset = targetId === "#experience" ? 0 : -65;
-          lenis.scrollTo(targetElement, { offset, duration: 1.25 });
+          lenis.scrollTo(targetElement, { offset, duration: 0.95 });
         }
       }
     };
 
     document.addEventListener("click", handleAnchorClick);
 
-    // Global smooth scroll reveal for sections and cards across the website
+    // Fast-scroll safe section reveals:
+    // 1. Content is never hidden permanently
+    // 2. Triggers 89% down viewport (before reaching center)
+    // 3. fastScrollEnd forces immediate finish during fast scrolling
     const timer = setTimeout(() => {
+      if (prefersReducedMotion) return;
+
       const revealTargets = [
         { selector: ".about-container", trigger: "#about" },
-        { selector: ".skills-header, .skills-categories-grid", trigger: "#skills" },
+        { selector: ".skills-header, .skills-columns-grid", trigger: "#skills" },
         { selector: ".projects-header, .projects-slider-wrapper", trigger: "#projects" },
         { selector: ".contact-header, .contact-content-grid", trigger: "#contact" },
       ];
@@ -73,17 +90,19 @@ function App() {
         if (trigEl && targetEls.length > 0) {
           gsap.fromTo(
             targetEls,
-            { y: 32, opacity: 0 },
+            { y: 20, opacity: 0.35 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.85,
-              stagger: 0.1,
-              ease: "power3.out",
+              duration: 0.45,
+              stagger: 0.06,
+              ease: "power2.out",
               scrollTrigger: {
                 trigger: trigEl,
-                start: "top 82%",
+                start: "top 89%",
                 toggleActions: "play none none none",
+                fastScrollEnd: true, // Instantly snaps to 100% on fast scroll
+                preventOverlaps: true,
               },
             }
           );
@@ -91,7 +110,7 @@ function App() {
       });
 
       ScrollTrigger.refresh();
-    }, 200);
+    }, 120);
 
     return () => {
       clearTimeout(timer);

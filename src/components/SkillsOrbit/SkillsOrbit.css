@@ -242,9 +242,10 @@
 @media (max-width: 520px) {
   :root,
   .skills-orbit-section {
-    --skill-orb-size: 32px;
-    --skill-icon-size: 16px;
+    --skill-orb-size: 30px;
+    --skill-icon-size: 15px;
     --skill-label-font-size: 8px;
+    --skill-label-padding: 1.5px 6px;
   }
 
   .skills-orbit-section {
@@ -260,9 +261,10 @@
 @media (max-width: 360px) {
   :root,
   .skills-orbit-section {
-    --skill-orb-size: 28px;
-    --skill-icon-size: 14px;
-    --skill-label-font-size: 7.5px;
+    --skill-orb-size: 26px;
+    --skill-icon-size: 13px;
+    --skill-label-font-size: 7px;
+    --skill-label-padding: 1px 5px;
   }
 
   .orbit-wrapper {
