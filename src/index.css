@@ -88,7 +88,6 @@ a, button, input, textarea, select {
 }
 
 html {
-  scroll-behavior: smooth;
   font-family: var(--font-main);
   background-color: var(--bg);
   color: var(--text);
@@ -116,13 +115,24 @@ html.lenis, html.lenis body {
 body {
   width: 100%;
   min-height: 100vh;
-  background: var(--bg-gradient);
-  background-attachment: fixed;
+  background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
   -webkit-overflow-scrolling: touch;
+}
+
+/* GPU-accelerated fixed background canvas (avoids full-page CPU repaints on every scroll frame) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--bg-gradient);
+  z-index: -999;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 /* Custom Sleek Scrollbar */

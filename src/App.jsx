@@ -38,7 +38,8 @@ function App() {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(tickerCallback);
-    gsap.ticker.lagSmoothing(0);
+    // Smooth out micro-lag and prevent scroll freezing if frame rates fluctuate
+    gsap.ticker.lagSmoothing(500, 33);
 
     // Smooth-scroll all internal anchor links (#about, #skills, #experience, #projects, #contact)
     const handleAnchorClick = (e) => {
